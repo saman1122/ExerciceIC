@@ -18,9 +18,7 @@ pipeline {
         }
 		stage('deployement') {
             steps {
-				sshagent(['f0817558-7410-4ccf-b86c-51332bb52245']) {
-					bat 'sh scp target/ExcerciceCI.war localhost:8080/test/'
-				}
+				bat 'scp target/ExcerciceCI.war deployer:deployer@localhost:8080/test/'
             }
         }
 	}
