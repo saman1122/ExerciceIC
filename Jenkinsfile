@@ -18,7 +18,9 @@ pipeline {
         }
 		stage('deployement') {
             steps {
-                bat 'xcopy /y C:/Users/Saman/.jenkins/workspace/ExCI/target/ExcerciceCI.war "C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/"'
+				sshagent(['CREDENTIALS_ID']) {
+					bat 'sh scp target/ExcerciceCI.war deployer:deployer@localhost:8080/test/'
+				}
             }
         }
 	}
