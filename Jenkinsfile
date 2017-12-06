@@ -18,7 +18,7 @@ pipeline {
         }
 		stage('deployement') {
             steps {
-                bat 'copy target/ExcerciceCI.war C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/'
+                sh 'xcopy C:/Users/Saman/.jenkins/workspace/ExCI/target/ExcerciceCI.war C:/Program Files/Apache Software Foundation/Tomcat 7.0/webapps/'
             }
         }
 	}
